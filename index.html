@@ -1,0 +1,56 @@
+<html>
+ <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
+<script src="angularApp.js"></script>
+</head>
+    <body ng-app="TestApp">
+    	<div ng-controller="testController">
+<table st-table="displayEmployee"  st-safe-src="employees" class="table table-striped">
+	<thead>
+		<tr>
+			<th>
+                <input st-search="name" placeholder="search for name" class="input-sm form-control" type="search"/>
+            </th>
+            <th>
+                <input st-search="gender" placeholder="search for gender" class="input-sm form-control" type="search"/>
+            </th>
+            <th>
+                <input st-search="age" placeholder="search for age" class="input-sm form-control" type="search"/>
+            </th>
+            <th>
+                <input st-search="skills" placeholder="search for skills" class="input-sm form-control" type="search"/>
+            </th>
+            <th>
+                <input st-search="designation" placeholder="search for designation" class="input-sm form-control" type="search"/>
+            </th>
+		</tr>
+		<tr>
+			<th st-sort="name">Name</th>
+			<th st-sort="gender">Gender</th>
+			<th st-sort="age">Age</th>
+			<th st-sort="skills">Skills</th>
+			<th st-sort="designation">Designation</th>			
+		</tr>		
+	</thead>
+	<tbody>
+		<tr st-select-row="row" st-select-mode="multiple" ng-repeat="employee in displayEmployee">
+			<td>{{employee.name}}</td>
+			<td>{{employee.gender}}</td>
+			<td>{{employee.age}}</td>
+			<td>{{employee.skills}}</td>
+			<td>{{employee.designation}}</td>			
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="5" class="text-center">
+				<div st-pagination="" st-items-by-page="5"></div>
+			</td>
+		</tr>
+	</tfoot>
+</table>	
+     </div>
+        </body>
+        </html>
